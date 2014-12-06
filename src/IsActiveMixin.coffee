@@ -6,7 +6,7 @@ IsActiveMixin =
   mixins: [ ActiveState, RouteToMixin ]
 
   getInitialState: ->
-    isActive: false
+    isActive: this.isActive @props.to, @getParams(), @props.query
 
   componentWillReceiveProps: (nextProps) ->
     params = @getUnreservedProps nextProps, @additionalReservedProps
